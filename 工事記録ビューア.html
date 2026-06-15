@@ -1346,7 +1346,7 @@ function renderTable() {
       <td class="addr-cell" ${r.address ? `onclick="openMap('${escJs(r.address)}','${escJs(r.現場名)}')"` : ''}>${addrText}</td>
       <td style="font-size:12px;color:var(--text-dim)">${highlight(r.ゼネコン,'ゼネコン')}</td>
       <td style="font-size:12px;color:var(--text-dim)">${highlight(r.仕様,'仕様')}</td>
-      <td style="font-size:12px;color:var(--text-dim);text-align:right;">${r.面積 ? highlight(String(r.面積),'面積') + '<span style="font-size:10px;margin-left:2px">㎡</span>' : '—'}</td>
+      <td style="font-size:12px;color:var(--text-dim);text-align:right;">${r.面積 ? highlight(String(r.面積),'面積') + (/[㎡m]/i.test(String(r.面積)) ? '' : '<span style="font-size:10px;margin-left:2px">㎡</span>') : '—'}</td>
       <td style="font-size:12px;color:var(--text-dim)">${highlight(r.色番号,'色番号')}</td>
       <td class="amount-cell ${isHigh ? 'high' : ''}">${amt}</td>
       <td style="font-size:12px;color:var(--text-dim)">${highlight(r.担当,'担当')}</td>
@@ -1386,7 +1386,7 @@ function renderTable() {
         ${r.address ? `<span class="card-label">住所</span><span class="card-value card-addr" onclick="openMap('${escJs(r.address)}','${escJs(r.現場名)}')")>📍 ${highlight(r.address,'address')}</span>` : ''}
         ${r.ゼネコン ? `<span class="card-label">ゼネコン</span><span class="card-value">${highlight(r.ゼネコン,'ゼネコン')}</span>` : ''}
         ${r.仕様 ? `<span class="card-label">仕様</span><span class="card-value">${highlight(r.仕様,'仕様')}</span>` : ''}
-        ${r.面積 ? `<span class="card-label">面積</span><span class="card-value">${highlight(String(r.面積),'面積')}㎡</span>` : ''}
+        ${r.面積 ? `<span class="card-label">面積</span><span class="card-value">${highlight(String(r.面積),'面積')}${/[㎡m]/i.test(String(r.面積)) ? '' : '㎡'}</span>` : ''}
         ${r.色番号 ? `<span class="card-label">色番号</span><span class="card-value">${highlight(r.色番号,'色番号')}</span>` : ''}
         ${amt !== '—' ? `<span class="card-label">金額</span><span class="card-value card-amount ${isHigh?'high':''}">${amt}</span>` : ''}
         ${r.担当 ? `<span class="card-label">担当</span><span class="card-value">${highlight(r.担当,'担当')}</span>` : ''}
