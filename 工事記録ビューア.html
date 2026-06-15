@@ -395,6 +395,7 @@
     overflow-y: auto;
     flex: 1;
     min-height: 0;
+    position: relative;
   }
   table {
     width: 100%;
@@ -671,7 +672,7 @@
     #toolbarToggle.open .ttl-arrow { transform: rotate(180deg); }
 
     .toolbar {
-      padding: 10px 16px 10px 12px;
+      padding: 10px 12px;
       gap: 8px;
       flex-direction: column;
       align-items: stretch;
@@ -755,12 +756,12 @@
   /* モバイル：常時表示のスクロール位置インジケーター */
   #mobileScrollIndicator {
     display: none;
-    position: fixed;
+    position: absolute;
     right: 3px;
     top: 0;
     bottom: 0;
     width: 5px;
-    z-index: 200;
+    z-index: 5;
     pointer-events: none;
   }
   #mobileScrollIndicator .track {
@@ -903,8 +904,8 @@
     <div class="count-badge">表示: <span id="countDisplay">0</span> 件</div>
   </div>
 
-  <div id="mobileScrollIndicator"><div class="track"></div><div class="thumb" id="scrollThumb"></div></div>
   <div class="table-wrap" id="tableWrap">
+    <div id="mobileScrollIndicator"><div class="track"></div><div class="thumb" id="scrollThumb"></div></div>
     <table id="dataTable">
       <colgroup>
         <col style="width:80px"><!-- No -->
