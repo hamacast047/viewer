@@ -666,6 +666,11 @@
       display: none;
     }
     #toolbarToggle.has-filter .ttl-badge { display: inline-block; }
+    #toolbarToggle .ttl-count {
+      font-size: 11px;
+      color: var(--text-dim);
+      white-space: nowrap;
+    }
     #toolbarToggle .ttl-arrow {
       font-size: 11px;
       color: var(--text-dim);
@@ -862,7 +867,7 @@
 <!-- MAIN APP -->
 <div id="app">
   <div id="toolbarToggle" onclick="toggleToolbar()">
-    <span class="ttl-label">🔍 検索・フィルター <span class="ttl-badge" id="filterBadge">適用中</span></span>
+    <span class="ttl-label">🔍 検索・フィルター <span class="ttl-badge" id="filterBadge">適用中</span><span class="ttl-count" id="toggleCount"></span></span>
     <span class="ttl-arrow">▼</span>
   </div>
   <div class="toolbar" id="toolbar">
@@ -1339,6 +1344,8 @@ function renderTable() {
   }
 
   document.getElementById('countDisplay').textContent = data.length.toLocaleString();
+  const toggleCount = document.getElementById('toggleCount');
+  if (toggleCount) toggleCount.textContent = data.length.toLocaleString() + ' 件';
 
   const tbody = document.getElementById('tableBody');
   const empty = document.getElementById('emptyState');
