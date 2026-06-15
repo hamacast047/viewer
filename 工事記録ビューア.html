@@ -688,6 +688,12 @@
     .amount-filter input { width: 70px; min-width: 70px; max-width: 70px; }
     .count-badge { text-align: right; }
 
+    /* iOSのフォーカス時自動ズームを防ぐ */
+    .search-box input,
+    .amount-filter input {
+      font-size: 16px;
+    }
+
     .table-wrap { overflow-x: unset; }
     table, colgroup { display: none; }
     #cardList { display: block; padding: 8px 12px; max-width: 100%; overflow-x: hidden; }
