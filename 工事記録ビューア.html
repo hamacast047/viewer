@@ -682,16 +682,26 @@
       -webkit-overflow-scrolling: touch;
     }
     .toolbar.open { display: flex; }
-    .toolbar.open > * { flex-shrink: 0; }
+    .toolbar.open > * { flex-shrink: 0; max-width: 100%; }
     .search-panel { width: 100% !important; flex: none; }
     .search-row-input .search-box { width: 100% !important; }
     .search-options { flex-wrap: wrap; gap: 8px; }
-    .filter-group { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 4px; }
+    .filter-group {
+      display: flex !important;
+      flex-direction: column !important;
+      width: 100%;
+      align-items: stretch;
+      gap: 5px;
+    }
     .filter-group-label { width: 100%; }
-    .filter-group-row { flex-wrap: wrap; }
+    .filter-group-row { width: 100%; flex-wrap: wrap; }
     .amount-filter { flex-wrap: wrap; gap: 4px; width: 100%; }
     .amount-filter input { width: 70px; min-width: 70px; max-width: 70px; }
     .count-badge { text-align: left; white-space: nowrap; }
+
+    /* 横スクロール防止 */
+    .toolbar, .toolbar * { box-sizing: border-box; }
+    .toolbar { overflow-x: hidden; }
 
     /* iOSのフォーカス時自動ズームを防ぐ */
     .search-box input,
