@@ -686,7 +686,7 @@
     .filter-group-row { flex-wrap: wrap; }
     .amount-filter { flex-wrap: wrap; gap: 4px; width: 100%; }
     .amount-filter input { width: 70px; min-width: 70px; max-width: 70px; }
-    .count-badge { text-align: right; }
+    .count-badge { text-align: right; white-space: nowrap; }
 
     /* iOSのフォーカス時自動ズームを防ぐ */
     .search-box input,
@@ -696,7 +696,7 @@
 
     .table-wrap { overflow-x: unset; }
     table, colgroup { display: none; }
-    #cardList { display: block; padding: 8px 12px; max-width: 100%; overflow-x: hidden; }
+    #cardList { display: block; padding: 8px 12px; padding-bottom: calc(80px + env(safe-area-inset-bottom)); max-width: 100%; overflow-x: hidden; }
     .card {
       background: var(--surface);
       border: 1px solid var(--border);
