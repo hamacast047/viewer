@@ -677,7 +677,7 @@
       flex-direction: column;
       align-items: stretch;
       display: none;
-      max-height: 60vh;
+      max-height: calc(100vh - 140px);
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
     }
@@ -701,7 +701,6 @@
 
     /* 横スクロール防止 */
     .toolbar, .toolbar * { box-sizing: border-box; }
-    .toolbar { overflow-x: hidden; }
 
     /* iOSのフォーカス時自動ズームを防ぐ */
     .search-box input,
