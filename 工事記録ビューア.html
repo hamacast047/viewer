@@ -75,6 +75,7 @@
     background: var(--bg);
     color: var(--text);
     height: 100vh;
+    height: 100dvh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -91,6 +92,7 @@
     position: sticky;
     top: 0;
     z-index: 100;
+    flex-shrink: 0;
   }
   header h1 {
     font-family: 'Bebas Neue', sans-serif;
@@ -675,6 +677,7 @@
       padding: 10px 12px;
       gap: 8px;
       flex-direction: column;
+      flex-wrap: nowrap;
       align-items: stretch;
       display: none;
       max-height: calc(100vh - 140px);
