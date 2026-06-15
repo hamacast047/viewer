@@ -678,13 +678,16 @@
       align-items: stretch;
       display: none;
       max-height: calc(100vh - 140px);
+      max-height: calc(100dvh - 140px);
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
     }
     .toolbar.open { display: flex; }
     .toolbar.open > * { flex-shrink: 0; max-width: 100%; }
-    .search-panel { width: 100% !important; flex: none; }
-    .search-row-input .search-box { width: 100% !important; }
+    .search-panel { width: 100% !important; flex: none; margin-right: 0 !important; }
+    .search-row-input { width: 100% !important; }
+    .search-row-input .search-box { width: auto !important; flex: 1 1 auto; min-width: 0; }
+    .search-row-input .remove-row-btn { flex-shrink: 0; }
     .search-options { flex-wrap: wrap; gap: 8px; }
     .filter-group {
       display: flex !important;
@@ -701,6 +704,9 @@
 
     /* 横スクロール防止 */
     .toolbar, .toolbar * { box-sizing: border-box; }
+
+    /* Safari下部バーとの重なり対策：ツールバー下端に余白を確保してスクロール可能にする */
+    .toolbar { padding-bottom: calc(16px + env(safe-area-inset-bottom)); }
 
     /* iOSのフォーカス時自動ズームを防ぐ */
     .search-box input,
